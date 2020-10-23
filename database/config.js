@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const dbConnection =async() =>{
+const dbConnection = async() =>{
     try {
-        await mongoose.connect('mongodb://localhost:27017/test', {
+        await mongoose.connect(process.env.DB_CNN, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
@@ -12,4 +12,6 @@ const dbConnection =async() =>{
         throw new Error('error coneccion con la bse de datos');
     }
 }
-module.exports = dbConnection;
+module.exports = {
+    dbConnection,
+}

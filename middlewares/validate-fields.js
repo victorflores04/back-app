@@ -11,11 +11,11 @@ const validateFields = (req,res= response, next)=>{
         if (!errors.isEmpty()){
             return res.status(400).json({
                 ok:true,
-                msg: errors.mapped()
+                msg: errors.mapped(),
             });
         }
         next();
 }
 module.exports = {
-    validateFields,
+    validateFields
 }
